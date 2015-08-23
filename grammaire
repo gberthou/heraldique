@@ -1,0 +1,70 @@
+Exemples :
+----------
+De sinople
+D'or
+Parti d'argent et d'azur
+Taillé de gueules et d'argent
+D'argent au pal de gueules
+D'argent à la fasce de gueules
+D'argent à 6 jumelles de gueules
+De pourpre à la barre d'or retrait
+Echiqueté d'argent et de gueules
+De gueules à la fasce ondée d'or
+
+
+Symboles :
+----------
+d : (de | d')
+a : (à la | à | au | aux)
+att : nom d'attribut
+A : attribut
+c : nom de couleur
+C : article + nom de couleur
+P : phrase
+P' : phrase'
+E : écu
+e : nom d'écu
+f : nom de figure
+F : figure
+Lc : Liste couleurs
+n : nom de nombre
+N : nombre
+
+
+Règles :
+--------
+R00 : P' = P
+
+R01 : A = att
+R02 : A = epsilon
+
+R03 : N = n
+R04 : N = epsilon
+
+R05 : C = d c
+
+R06 : LC = C
+R07 : LC = LC 'et' C
+R08 : LC = epsilon
+
+R09 : E = e Lc
+
+R10 : F = N f C A
+
+R11 : P = C a F
+R12 : P = C
+R13 : P = E
+
+
+Successeurs :
+-------------
+Succ(P') = {$}
+Succ(A)  = {$}
+Succ(N)  = {f}
+Succ(C)  = {$, 'et', att}
+Succ(LC) = {$, 'et'}
+Succ(E)  = {$}
+Succ(F)  = {$}
+Succ(P)  = {$} # Théoriquement, {$, 'et', att}
+               # En pratique, P ne doit être suivi que du symbole de fin
+
